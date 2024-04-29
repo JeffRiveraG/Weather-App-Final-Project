@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">weatherAppUpdate</string>
+    <string name="enter_city_name">Enter City Name</string>
+    <string name="search_bar">Search Bar</string>
+    <string name="default_weather">default_weather</string>
+    <string name="city_name">City Name</string>
+    <string name="temperature_text"> %1$d</string>
+    <string name="wind_speed_text">Wind: %1$.2f km/h</string>
+    <string name="humidity_text">Humidity: %1$d%%</string>
+    <string name="rain_chance_text">Rain: %1$.2f%%</string>
+    <string name="condition_text">%1$s</string>
 </resources>

@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         rainChanceTextView = findViewById(R.id.idTVRainChance)
         conditionTextView = findViewById(R.id.idTVCondition)
 
-        findViewById<ImageView>(R.id.idTVSearch).setOnClickListener {
+        findViewById<ImageView>(R.id.idIVSearch).setOnClickListener {
             val cityName = cityEditText.text.toString().trim()
             if (cityName.isNotEmpty()) {
                 fetchWeatherData(cityName)
@@ -66,13 +66,13 @@ class MainActivity : AppCompatActivity() {
         runOnUiThread {
             weatherResponse?.let {
                 val temperatureCelsius = it.main.temp - 273.15
-                temperatureTextView.text = "Temperature: ${temperatureCelsius.roundToInt()}°C"
-                windSpeedTextView.text = "Wind Speed: ${it.wind.speed} m/s"
-                humidityTextView.text = "Humidity: ${it.main.humidity}%"
-                rainChanceTextView.text = "Rain Chance: ${it.rain?.chance ?: 0.0}%"
+                temperatureTextView.text = getString(R.string.temperature_text, temperatureCelsius.roundToInt())
+                windSpeedTextView.text = getString(R.string.wind_speed_text, it.wind.speed)
+                humidityTextView.text = getString(R.string.humidity_text, it.main.humidity)
+                rainChanceTextView.text = getString(R.string.rain_chance_text, it.rain?.chance ?: 0.0)
 
                 val condition = it.weather[0].description
-                conditionTextView.text = "Condition: $condition"
+                conditionTextView.text = getString(R.string.condition_text, condition)
             }
         }
     }
