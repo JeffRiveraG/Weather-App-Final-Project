@@ -10,7 +10,7 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"> <!-- Add padding to improve layout appearance -->
+            android:padding="16dp">
 
         <ProgressBar
                 android:layout_width="wrap_content"
@@ -30,12 +30,13 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:src="@color/black_shade_1"
-                    android:id="@+id/idTVBack"/>
+                    android:id="@+id/idTVBack"
+                    android:contentDescription="@string/black_background" />
 
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="City Name"
+                    android:text="@string/city_name"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textColor="@color/white"
@@ -59,7 +60,7 @@
                         android:layout_margin="10dp"
                         android:layout_weight="4.5"
                         android:background="@android:color/transparent"
-                        android:hint="Enter City Name"
+                        android:hint="@string/enter_city_name"
                         android:padding="5dp"
                         app:hintTextColor="@color/white"
                         android:textColorHint="@color/white">
@@ -86,7 +87,8 @@
                         android:layout_margin="10dp"
                         android:background="@android:color/transparent"
                         android:src="@drawable/ic_search"
-                        app:tint="@color/white"/>
+                        app:tint="@color/white"
+                    android:contentDescription="@string/search_bar" />
 
             </LinearLayout>
 
@@ -97,7 +99,7 @@
                     android:layout_below="@id/idLLEdt"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
-                    android:text="23"
+                    android:text="@string/temp_default"
                     android:textColor="@color/white"
                     android:textSize="40sp"
                     android:textStyle="bold"/>
@@ -109,7 +111,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/idTVTemperature"
                     android:layout_margin="10dp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher"
+                    android:contentDescription="@string/search_icon" />
 
             <TextView
                     android:layout_width="match_parent"
@@ -118,7 +121,7 @@
                     android:layout_margin="10dp"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:text="Condition"
+                    android:text="@string/condition"
                     android:textColor="@color/white"
                     android:layout_below="@id/idIVIcon"/>
 
@@ -127,14 +130,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_below="@id/idTVCondition"
-                    android:layout_marginTop="20dp"> <!-- Added margin top for spacing -->
+                    android:layout_marginTop="20dp">
 
                 <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:id="@+id/idTVWindSpeed"
-                        android:text="Wind Speed"
+                        android:text="@string/wind_speed"
                         android:textColor="@color/white"
                         android:textAlignment="center"/>
 
@@ -143,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:id="@+id/idTVHumidity"
-                        android:text="Humidity"
+                        android:text="@string/humidity"
                         android:textColor="@color/white"
                         android:textAlignment="center"/>
 
@@ -152,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:id="@+id/idTVRainChance"
-                        android:text="Rain Chance"
+                        android:text="@string/rain_chance"
                         android:textColor="@color/white"
                         android:textAlignment="center"/>
 
