@@ -34,12 +34,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        cityEditText = findViewById(R.id.idEdtCity)
-        temperatureTextView = findViewById(R.id.idTVTemperature)
-        windSpeedTextView = findViewById(R.id.idTVWindSpeed)
-        humidityTextView = findViewById(R.id.idTVHumidity)
-        rainChanceTextView = findViewById(R.id.idTVRainChance)
-        conditionTextView = findViewById(R.id.idTVCondition)
+        cityEditText = findViewById(R.id.idEdtCity) ?: throw NullPointerException("idEdtCity not found")
+        temperatureTextView = findViewById(R.id.idTVTemperature) ?: throw NullPointerException("idTVTemperature not found")
+        windSpeedTextView = findViewById(R.id.idTVWindSpeed) ?: throw NullPointerException("idTVWindSpeed not found")
+        humidityTextView = findViewById(R.id.idTVHumidity) ?: throw NullPointerException("idTVHumidity not found")
+        rainChanceTextView = findViewById(R.id.idTVRainChance) ?: throw NullPointerException("idTVRainChance not found")
+        conditionTextView = findViewById(R.id.idTVCondition) ?: throw NullPointerException("idTVCondition not found")
 
         findViewById<ImageView>(R.id.idIVSearch).setOnClickListener {
             val cityName = cityEditText.text.toString().trim()
@@ -49,6 +49,15 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "City Name cannot be empty!", Toast.LENGTH_SHORT).show()
             }
         }
+
+        if (savedInstanceState == null) {
+            val weatherConditionsFragment = WeatherConditionsFragment()
+            val weatherDetailsFragment = WeatherDetailsFragment()
+            supportFragmentManager.beginTransaction()
+                .add(R.id.weather_fragment_container, weatherConditionsFragment, "WeatherConditionsFragment")
+                .add(R.id.details_fragment_container, weatherDetailsFragment, "WeatherDetailsFragment")
+                .commit()
+        }
     }
 
     private fun fetchWeatherData(city: String) {
@@ -57,7 +66,9 @@ class MainActivity : AppCompatActivity() {
                 val weatherResponse = weatherService.getWeather(city, "8a8509cd5d77ca6eef6520e383454eac")
                 updateUI(weatherResponse)
             } catch (e: Exception) {
-                // Handle error
+                runOnUiThread {
+                    Toast.makeText(this@MainActivity, "Failed to fetch weather data: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
