@@ -9,4 +9,7 @@
     <string name="humidity_text">Humidity: %1$d%%</string>
     <string name="rain_chance_text">Rain: %1$.2f%%</string>
     <string name="condition_text">%1$s</string>
+    <string name="search_icon">search icon</string>
+    <string name="background_holder">background holder</string>
+    <string name="enter_city">Enter city</string>
 </resources>
